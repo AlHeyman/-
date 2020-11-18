@@ -6,26 +6,32 @@
     android:layout_height="match_parent"
     android:padding="16dp"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="#7983BC"
+    >
 
     <com.google.android.material.textfield.TextInputLayout
 
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="СУКА И ПИДР">
+        android:hint="СУКA"
+        android:textColorHint="#FFF"
+        app:boxCornerRadiusBottomEnd="16dp">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/search"
+            android:outlineAmbientShadowColor="#FFF"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+ />
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        >
-    </androidx.recyclerview.widget.RecyclerView>
+        android:layout_weight="1"></androidx.recyclerview.widget.RecyclerView>
 
 </LinearLayout>

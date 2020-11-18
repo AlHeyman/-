@@ -1,4 +1,4 @@
-package com.example.weather
+  package com.example.weather
 
 data class CityItem (
     val title: String,
