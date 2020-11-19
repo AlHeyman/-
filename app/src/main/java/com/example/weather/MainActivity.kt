@@ -7,6 +7,7 @@ import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.city_item_rv.*
+import kotlinx.android.synthetic.main.weather_activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -43,10 +44,12 @@ class MainActivity : AppCompatActivity() {
                             call: Call<List<CityItem>>,
                             response: Response<List<CityItem>>
                     ) {
-                        val cityItem = response.body()
+                        val cityItem : WeatherResponse? = response.body()
                         if (cityItem != null) {
                            cityAdapter.addCity(cityItem)
+                            city_temp.text = cityItem.consolidated_weather[0].the_temp.toInt().toString() + "º"
                             }
+
                     }
                     override fun onFailure(call: Call<List<CityItem>>, t: Throwable) {
                         println()

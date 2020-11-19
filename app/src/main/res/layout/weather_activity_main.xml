@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#303030"
-    android:padding="12dp">
+    android:padding="12dp"
+
+    >
 
     <androidx.cardview.widget.CardView
         android:id="@+id/first"
@@ -20,14 +22,17 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="10dp">
+            android:padding="16dp">
 
             <TextView
                 android:id="@+id/siti"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="siti"
-                android:textSize="40sp"
+                android:textSize="38sp"
+
+                app:layout_constraintBottom_toTopOf="@+id/icon"
+
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -46,24 +51,28 @@
                 android:id="@+id/icon"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/siti" />
 
             <TextView
-                android:id="@+id/weather"
+
+                android:id="@+id/weather1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Heavy Rain"
                 android:textColor="#F8F8F8"
                 android:textSize="30sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/icon" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/temp" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
         android:layout_width="match_parent"
         android:layout_height="130dp"
         android:layout_marginTop="12dp"
@@ -83,11 +92,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="wind"
-                android:textSize="16sp"
-                app:layout_constraintTop_toTopOf="parent"
+                android:text="Wind"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toStartOf="@id/humidity"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
 
@@ -96,11 +105,11 @@
                 android:layout_height="wrap_content"
                 android:text="33 m/h"
                 android:textColor="#000000"
-                android:textSize="20sp"
+                android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/km"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/wind"
+                app:layout_constraintStart_toStartOf="@id/wind"
                 app:layout_constraintTop_toBottomOf="@+id/wind" />
 
 
@@ -110,10 +119,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="Humidity"
-                android:textSize="16sp"
-                app:layout_constraintTop_toTopOf="parent"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toStartOf="@id/visibility"
-                app:layout_constraintStart_toEndOf="@+id/wind" />
+                app:layout_constraintStart_toEndOf="@+id/wind"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
 
@@ -122,11 +131,11 @@
                 android:layout_height="wrap_content"
                 android:text="23 km"
                 android:textColor="#000000"
-                android:textSize="20sp"
+                android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/proc"
-                app:layout_constraintStart_toEndOf="@id/m_h"
+                app:layout_constraintEnd_toEndOf="@+id/humidity"
+                app:layout_constraintStart_toStartOf="@id/humidity"
                 app:layout_constraintTop_toBottomOf="@+id/humidity" />
 
             <TextView
@@ -134,11 +143,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="visibility"
-                android:textSize="16sp"
-                app:layout_constraintTop_toTopOf="parent"
+                android:text="Visibility"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/humidity" />
+                app:layout_constraintStart_toEndOf="@id/humidity"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/proc"
@@ -146,16 +155,192 @@
                 android:layout_height="wrap_content"
                 android:text="63%"
                 android:textColor="#000000"
-                android:textSize="20sp"
+                android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/km"
+                app:layout_constraintEnd_toEndOf="@+id/visibility"
+                app:layout_constraintStart_toStartOf="@+id/visibility"
                 app:layout_constraintTop_toBottomOf="@+id/visibility" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="370dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardView2"
+        app:layout_constraintVertical_weight="1"
+        >
+
+        <LinearLayout
+android:layout_marginStart="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/min_temp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textColor="#BABABA"
+                    android:textSize="24sp"
+                    android:text="Min temp"
+                    />
+
+
+                <TextView
+                    android:id="@+id/min_temp_znach"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textColor="#BABABA"
+                    android:textSize="20sp"
+                    android:text="12º"
+                    />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/max_temp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textColor="#BABABA"
+                    android:textSize="24sp"
+                    android:text="Max temp"
+                    />
+
+
+                <TextView
+                    android:id="@+id/max_temp_znach"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textColor="#BABABA"
+                    android:textSize="20sp"
+                    android:text="12º"
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/sun_rise"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Sun rise"
+                    android:textColor="#BABABA"
+                    android:textSize="24sp"
+                    android:layout_weight="1"
+                    />
+                <TextView
+                    android:id="@+id/time_sun"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textColor="#BABABA"
+                    android:textSize="20sp"
+                    android:text="18:44"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/sun_set"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textColor="#BABABA"
+                    android:textSize="24sp"
+                    android:text="Sun set"
+                    />
+
+
+                <TextView
+                    android:id="@+id/time_set"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textColor="#BABABA"
+                    android:textSize="20sp"
+                    android:text="11:22"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                >
+
+                <TextView
+                    android:id="@+id/pressure"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:layout_weight="1"
+                    android:text="Air pressure"
+                    android:textColor="#BABABA"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/press"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:baselineAligned="false"
+                    android:text="772,67 mm Hg"
+                    android:textColor="#BABABA"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="16dp"
+                android:padding="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="16dp"
+                android:padding="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 

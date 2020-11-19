@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.weather_activity_main.*
 import retrofit2.Call
@@ -12,6 +13,8 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.text.SimpleDateFormat
+import java.util.*
 
 class Weather_Aclivity : AppCompatActivity() {
 
@@ -46,7 +49,34 @@ class Weather_Aclivity : AppCompatActivity() {
                     val weatherTemp: WeatherResponse? = response.body()
                     if (weatherTemp != null) {
                         temp.text = weatherTemp.consolidated_weather[0].the_temp.toInt().toString() + "º"
+
+                        km.text = weatherTemp.consolidated_weather[0].humidity.toInt().toString() + "km"
+
+                        m_h.text=weatherTemp.consolidated_weather[0].wind_speed.toInt().toString()+ "m/h"
+
+                        proc.text=weatherTemp.consolidated_weather[0].visibility.toInt().toString()+ "%"
+
+                        weather1.text=weatherTemp.consolidated_weather[0].weather_state_name.toString()
+
+                        //var userFormatter =SimpleDateFormat("HH:mm")
+                        //SunRiseObj.formatter.parse(userFormatter.format(Date()))
+                        //time_sun.text=weatherTemp.consolidated_weather[0].sun_rise
+
+                        var res = weatherTemp.consolidated_weather[0].air_pressure*0.7500
+
+                        press.text=res.toString() +" mm Hg"
+
+                        min_temp_znach.text=weatherTemp.consolidated_weather[0].min_temp.toInt().toString()+"º"
+
+                        max_temp_znach.text=weatherTemp.consolidated_weather[0].max_temp.toInt().toString()+"º"
+
+
+
+
+
                     }
+
+
 
                 }
 
