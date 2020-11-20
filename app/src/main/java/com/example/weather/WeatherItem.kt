@@ -12,7 +12,7 @@ data class WeatherItem(
 
     var max_temp: Double,
     var min_temp: Double,
-    var air_pressure: Float
-    //var sun_rise: String
+    var air_pressure: Float,
+    var sun_rise: String
     //var sun_set : String
 )

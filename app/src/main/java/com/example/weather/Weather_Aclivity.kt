@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.example.weather.SunRiseObj.formatter
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.city_item_rv.*
 import kotlinx.android.synthetic.main.weather_activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -15,6 +17,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.text.SimpleDateFormat
 import java.util.*
+
+
 
 class Weather_Aclivity : AppCompatActivity() {
 
@@ -58,9 +62,15 @@ class Weather_Aclivity : AppCompatActivity() {
 
                         weather1.text=weatherTemp.consolidated_weather[0].weather_state_name.toString()
 
-                        //var userFormatter =SimpleDateFormat("HH:mm")
-                        //SunRiseObj.formatter.parse(userFormatter.format(Date()))
-                        //time_sun.text=weatherTemp.consolidated_weather[0].sun_rise
+
+                        formatter.parse("sun_rise")
+
+                        val userFormatter = SimpleDateFormat("HH:mm").format(formatter)
+                        val rest = weatherTemp.consolidated_weather[0].sun_rise
+
+                        city_temp.text = weatherTemp.consolidated_weather[0].sun_rise.format(
+                            formatter).
+
 
                         var res = weatherTemp.consolidated_weather[0].air_pressure*0.7500
 
@@ -69,15 +79,7 @@ class Weather_Aclivity : AppCompatActivity() {
                         min_temp_znach.text=weatherTemp.consolidated_weather[0].min_temp.toInt().toString()+"º"
 
                         max_temp_znach.text=weatherTemp.consolidated_weather[0].max_temp.toInt().toString()+"º"
-
-
-
-
-
                     }
-
-
-
                 }
 
                 override fun onFailure(call: Call<WeatherResponse>, t: Throwable) {
@@ -86,6 +88,8 @@ class Weather_Aclivity : AppCompatActivity() {
         }
     }
 }
+
+
 
 
 

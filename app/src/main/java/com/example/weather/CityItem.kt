@@ -5,5 +5,7 @@ data class CityItem (
     val location_type: String,
     val latt_long: String,
     val woeid: Int,
+
+    val the_temp: Double,
     val distance: Int
 )
